@@ -22,6 +22,7 @@ export function GuestEmail({ email, onRemove }: GuestEmailProps) {
           size={16}
         />
       </TouchableOpacity>
+      
     </View>
   )
 }
