@@ -5,8 +5,8 @@ import { X } from 'lucide-react-native'
 import { colors } from '@/styles/colors'
 interface Props extends ModalProps {
   title: string
-  subtitle: string
-  onClose: () => void
+  subtitle?: string
+  onClose?: () => void
 }
 
 export function Modal({ onClose, subtitle = '', title, children, ...rest }: Props) {

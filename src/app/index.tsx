@@ -161,11 +161,11 @@ export default function Home() {
       }
 
       const trip = await tripeServer.getById(tripID)
-      
+
       if (trip) {
         return router.navigate(`trip/${trip.id}`)
       }
-     
+
     } catch (error) {
       setIsGettingTrip(false)
       console.error(error);
@@ -201,7 +201,9 @@ export default function Home() {
         próxima viagem
       </Text>
 
-      <View className="w-full bg-zinc-900 p-4  rounded-lg my-8 border border-zinc-800">
+      <View className="w-full bg-zinc-900 p-4  
+      rounded-lg my-8 border border-zinc-800">
+       
         <Input >
           <MapPin size={20} color={colors.zinc[400]} />
           <Input.Field
@@ -219,7 +221,8 @@ export default function Home() {
             placeholder="Quando?"
             onFocus={() => Keyboard.dismiss()}
             showSoftInputOnFocus={false}
-            onPressIn={() => stepForm === StepForm.TRIP_DETAILS && setShowModal(MODAL.CALENDAR)}
+            onPressIn={() => stepForm === StepForm.TRIP_DETAILS &&
+              setShowModal(MODAL.CALENDAR)}
             value={selectedDate.formatDatesInText}
           />
         </Input>
@@ -227,13 +230,18 @@ export default function Home() {
         {stepForm === StepForm.ADD_EMAIL && (
           <>
             <View className="border-b py-3 border-zinc-800">
-              <Button variant="secondary" onPress={() => setStepForm(StepForm.TRIP_DETAILS)} >
+              <Button
+                variant="secondary"
+                onPress={() => setStepForm(StepForm.TRIP_DETAILS)}
+              >
+
                 <Button.Title>
                   Alterar local/data
                 </Button.Title>
                 <Settings2 className="h-5 w-5 " color={colors.zinc[200]} />
               </Button>
             </View>
+
             <Input >
               <UserRoundPlus size={20} color={colors.zinc[400]} />
               <Input.Field
@@ -261,7 +269,8 @@ export default function Home() {
           isLoading={isCreatingTrip}
         >
           <Button.Title>
-            {stepForm === StepForm.TRIP_DETAILS ? 'Continuar' : 'Confirmar Viagem'}
+            {stepForm === StepForm.TRIP_DETAILS
+              ? 'Continuar' : 'Confirmar Viagem'}
           </Button.Title>
           <ArrowRight
             className="h-5 w-5 "
@@ -311,7 +320,8 @@ export default function Home() {
         onClose={() => setShowModal(MODAL.NONE)}
       >
 
-        <View className="my-2 flex-wrap gap-2 border-b border-zinc-800 py-5 items-center">
+        <View className="my-2 flex-wrap gap-2 border-b 
+        border-zinc-800 py-5 items-center">
 
           {emailsToInvite.length > 0 ? (
             emailsToInvite.map((email) => (

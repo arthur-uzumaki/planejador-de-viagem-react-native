@@ -6,7 +6,7 @@ export interface ParticipantProps {
   id: string
   name?: string
   email: string
-  isConfirmed: boolean
+  is_confirmed: boolean
 }
 
 interface Props {
@@ -24,7 +24,7 @@ export function Participant({ data }: Props) {
         <Text className="text-zinc-400 text-sm">{data.email}</Text>
       </View>
 
-      {data.isConfirmed ? (
+      {data.is_confirmed ? (
         <CircleCheck
           color={colors.lime[300]}
           size={20}
